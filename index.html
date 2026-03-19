@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="yandex-verification" content="19489e1b80321ec5" />
+    <meta name="google-site-verification" content="VI0RL7BTZ0kJ2rXKQfV5N3mEs0jQ_VpUk5kAFv6TB2I" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Динамические SEO-теги (будут меняться через JS) -->
+    <title>BOLINGER.DIGITAL — создание сайтов под ключ</title>
+    <meta name="description" content="Создание современных сайтов с помощью нейросетей. Быстро, стильно, с душой. Сайт под ключ за 24 часа. Индивидуальный дизайн, адаптация под мобильные.">
+    
+    <!-- Open Graph мета-теги для соцсетей -->
+    <meta property="og:title" content="BOLINGER.DIGITAL — создание сайтов под ключ">
+    <meta property="og:description" content="Создание современных сайтов с помощью нейросетей. Быстро, стильно, с душой. Сайт под ключ за 24 часа.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bolinger.digital">
+    <meta property="og:image" content="https://bolinger.digital/images/og-preview.jpg">
+    <meta property="og:site_name" content="BOLINGER.DIGITAL">
+    
+    <!-- Schema.org разметка для LocalBusiness (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "BOLINGER.DIGITAL",
+        "description": "Студия по созданию современных сайтов с помощью нейросетей",
+        "url": "https://bolinger.digital",
+        "telephone": "+7-***-***-**-**",
+        "email": "bolinger_a@mail.ru",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Новокузнецк",
+            "addressCountry": "RU"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Анна Болингер"
+        },
+        "priceRange": "₽₽",
+        "openingHours": "Mo-Su 09:00-21:00",
+        "sameAs": [
+            "https://t.me/Anna_Bolinger"
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Оптимизировал шрифты: оставил только нужные начертания -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========== СБРОС И ПЕРЕМЕННЫЕ ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent-green: #2C5F4D;
+            --bg-light: #F0F0F0;
+            --text-dark: #1E1E1E;
+            --text-soft: #2C2C2C;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --border-light: #D4D4D4;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-light);
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            color: var(--text-soft);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.2"><path fill="%232C5F4D" d="M20,80 Q30,50 50,50 T80,40 Q70,60 50,70 T20,80 Z"/><path fill="%232C5F4D" d="M10,90 Q20,60 40,60 T70,50 Q60,70 40,75 T10,90 Z"/></svg>') no-repeat;
+            background-size: cover;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.2"><path fill="%232C5F4D" d="M80,20 Q70,50 50,50 T20,60 Q30,80 50,80 T80,70 Q85,40 80,20Z"/></svg>') no-repeat;
+            background-size: cover;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: clamp(2.8rem, 8vw, 4.5rem);
+        }
+        
+        /* Базовые стили для заголовков */
+        h2 { 
+            font-size: clamp(2.2rem, 6vw, 3.2rem); 
+            margin-bottom: 2rem; 
+        }
+        h3 { 
+            font-size: 1.8rem; 
+            margin-bottom: 1rem; 
+        }
+
+        /* ===== ИСПРАВЛЕНИЕ: Уменьшаем шрифты в карточках ===== */
+        /* Для карточек услуг */
+        .service-card h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        /* Для карточек портфолио */
+        .portfolio-card h2 {
+            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        /* Для FAQ (вопросы) */
+        .faq-item h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 1rem;
+        }
+
+        /* Для карточек преимуществ на главной */
+        .features-grid h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        /* ===== КОНЕЦ ИСПРАВЛЕНИЙ ===== */
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ========== НАВИГАЦИЯ ========== */
+        .header {
+            background-color: rgba(240, 240, 240, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+        .logo span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            color: var(--accent-green);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-link {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: color 0.3s;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            display: inline-block;
+        }
+        .nav-link:hover {
+            color: var(--accent-green);
+        }
+
+        .page {
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(5px);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            background-color: #1A3F32;
+            transform: scale(1.02);
+        }
+
+        /* Главная */
+        .hero {
+            text-align: center;
+            padding: 6rem 0 2rem;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 2rem auto;
+        }
+        .star-note {
+            font-size: 0.9rem;
+            color: var(--accent-green);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        /* Услуги */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .service-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease;
+        }
+        .service-img:hover {
+            transform: scale(1.02);
+        }
+        .service-card p {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+        .price {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            margin: 1rem 0;
+        }
+
+        /* Портфолио */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .portfolio-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(5px);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .portfolio-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-light);
+        }
+
+        /* Отзывы */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .review-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .author-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-green);
+        }
+
+        /* Контакты */
+        .contact-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 2px solid var(--accent-green);
+            box-shadow: 0 20px 40px rgba(44, 95, 77, 0.1);
+            position: relative;
+        }
+        .contact-card::before {
+            content: "✉️";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .contact-card p {
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .contact-card a {
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-light);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+            .header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero {
+                padding: 3rem 0 1rem;
+            }
+            
+            /* На мобильных тоже уменьшаем отступы */
+            .service-card h2 {
+                font-size: 1.5rem;
+            }
+            .portfolio-card h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-title">BOLINGER.DIGITAL</span>
+                <span>web studio</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link" onclick="showPage('home'); return false;">Главная</a>
+                <a href="#services" class="nav-link" onclick="showPage('services'); return false;">Услуги</a>
+                <a href="#portfolio" class="nav-link" onclick="showPage('portfolio'); return false;">Примеры работ</a>
+                <a href="#contacts" class="nav-link" onclick="showPage('contacts'); return false;">Контакты</a>
+                <a href="#faq" class="nav-link" onclick="showPage('faq'); return false;">Вопрос-ответ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ГЛАВНАЯ -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="container">
+                    <h1 class="page-title">Создаю современные сайты<br>с помощью нейросетей</h1>
+                    <p>Быстро, стильно, с душой. Сайт под ключ за 24 часа* с уникальным дизайном под ваш вкус.</p>
+                    <a href="https://t.me/Anna_Bolinger" class="btn" target="_blank">Написать в Telegram</a>
+                    <div class="star-note">* от 24 часов — зависит от сложности задачи</div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <h2>Почему стоит обратиться ко мне</h2>
+                    <div class="features-grid">
+                        <div class="card"><h3>⏱ Скорость</h3><p>Сайт за 1 день — реально.</p></div>
+                        <div class="card"><h3>🎨 Индивидуально</h3><p>Дизайн под вас. Правки до результата.</p></div>
+                        <div class="card"><h3>🤖 Нейросети</h3><p>Использую ИИ для креатива.</p></div>
+                        <div class="card"><h3>🤝 Личное общение</h3><p>Работаю напрямую, без посредников.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Отзывы с улучшенными alt-текстами -->
+            <section>
+                <div class="container">
+                    <h2>Отзывы клиентов</h2>
+                    <div class="reviews-grid">
+                        <div class="review-card">
+                            <div class="review-author">
+                                <img src="images/review-1.jpg" alt="Фото Екатерины М., владелицы салона красоты" class="author-photo" loading="lazy">
+                                <div><strong>Екатерина М.</strong></div>
+                            </div>
+                            <p>Аня, ты волшебница! 😍 Сайт получился лучше, чем я мечтала. Подруги теперь тоже хотят себе такой!</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-author">
+                                <img src="images/review-2.jpg" alt="Фото Дмитрия К., основателя строительной компании" class="author-photo" loading="lazy">
+                                <div><strong>Дмитрий К.</strong></div>
+                            </div>
+                            <p>Сделано качественно, в срок. Без лишних вопросов. Рекомендую.</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-author">
+                                <img src="images/review-3.jpg" alt="Фото Александры В., дизайнера интерьеров" class="author-photo" loading="lazy">
+                                <div><strong>Александра В.</strong></div>
+                            </div>
+                            <p>Девочки, это просто бомба! 💣 Все так нежно и стильно, я влюбилась в свой сайт. Спасибо!</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-author">
+                                <img src="images/review-4.jpg" alt="Фото Ильи П., владельца кофейни" class="author-photo" loading="lazy">
+                                <div><strong>Илья П.</strong></div>
+                            </div>
+                            <p>Нормально. Работает, претензий нет.</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-author">
+                                <img src="images/review-5.jpg" alt="Фото Ольги С., фотографа" class="author-photo" loading="lazy">
+                                <div><strong>Ольга С.</strong></div>
+                            </div>
+                            <p>Анна, вы чудо! ✨ Так быстро и так красиво. Обязательно вернусь еще!</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-author">
+                                <img src="images/review-6.jpg" alt="Фото Максима Л., адвоката" class="author-photo" loading="lazy">
+                                <div><strong>Максим Л.</strong></div>
+                            </div>
+                            <p>Всё четко, по делу. Спасибо за работу.</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-author">
+                                <img src="images/review-7.jpg" alt="Фото Натальи Р., стилиста" class="author-photo" loading="lazy">
+                                <div><strong>Наталья Р.</strong></div>
+                            </div>
+                            <p>Очень довольна! Аня учла все пожелания, сайт работает отлично. Всем советую! 💕</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-author">
+                                <img src="images/review-8.jpg" alt="Фото Андрея Н., владельца стоматологии" class="author-photo" loading="lazy">
+                                <div><strong>Андрей Н.</strong></div>
+                            </div>
+                            <p>Профессионально. Без воды. Цена-качество супер.</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-author">
+                                <img src="images/review-9.jpg" alt="Фото Светланы Т., организатора мероприятий" class="author-photo" loading="lazy">
+                                <div><strong>Светлана Т.</strong></div>
+                            </div>
+                            <p>Анечка, ты просто прелесть! 😘 Так приятно было работать. Результат превзошел ожидания!</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-author">
+                                <img src="images/review-10.jpg" alt="Фото Павла Д., IT-специалиста" class="author-photo" loading="lazy">
+                                <div><strong>Павел Д.</strong></div>
+                            </div>
+                            <p>Сделано на совесть. Я доволен.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- УСЛУГИ -->
+        <div id="services" class="page">
+            <section>
+                <div class="container">
+                    <h1 class="page-title">Мои услуги и цены</h1>
+                    <div class="services-grid">
+                        <div class="card service-card">
+                            <h2>Лендинг (одностраничный)</h2>
+                            <img src="images/service-1.jpg" alt="Пример лендинга для кофейни с темным фоном и золотыми акцентами" class="service-img" loading="lazy">
+                            <p>Идеально для запуска товара или услуги. Одна страница = максимум продаж.</p>
+                            <div class="price">от 7 900 ₽</div>
+                            <a href="https://t.me/Anna_Bolinger" class="btn" target="_blank">Заказать</a>
+                        </div>
+                        <div class="card service-card">
+                            <h2>Сайт-визитка</h2>
+                            <img src="images/service-2.jpg" alt="Пример сайта-визитки для фотографа с портфолио и контактами" class="service-img" loading="lazy">
+                            <p>Небольшой сайт из 3-5 страниц для компании или специалиста.</p>
+                            <div class="price">от 15 000 ₽</div>
+                            <a href="https://t.me/Anna_Bolinger" class="btn" target="_blank">Заказать</a>
+                        </div>
+                        <div class="card service-card">
+                            <h2>Интернет-магазин</h2>
+                            <img src="images/service-3.jpg" alt="Пример интернет-магазина с корзиной и карточками товаров" class="service-img" loading="lazy">
+                            <p>С товарами, корзиной и формой заказа. Упрощенная версия до 10 товаров.</p>
+                            <div class="price">от 50 000 ₽</div>
+                            <a href="https://t.me/Anna_Bolinger" class="btn" target="_blank">Заказать</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ПРИМЕРЫ РАБОТ -->
+        <div id="portfolio" class="page">
+            <section>
+                <div class="container">
+                    <h1 class="page-title">Примеры моих работ</h1>
+                    <div class="portfolio-grid">
+                        <div class="portfolio-card">
+                            <img src="images/work-1.jpg" alt="Лендинг кофейни Coffee Mood с меню и формой заказа столиков" class="portfolio-img" loading="lazy">
+                            <h2>Лендинг кофейни "Coffee Mood"</h2>
+                        </div>
+                        <div class="portfolio-card">
+                            <img src="images/work-2.jpg" alt="Сайт-портфолио фотографа Анны Соколовой с галереей работ" class="portfolio-img" loading="lazy">
+                            <h2>Портфолио фотографа</h2>
+                        </div>
+                        <div class="portfolio-card">
+                            <img src="images/work-3.jpg" alt="Магазин цветов Flower Story с каталогом букетов и корзиной" class="portfolio-img" loading="lazy">
+                            <h2>Магазин цветов "Flower Story"</h2>
+                        </div>
+                        <div class="portfolio-card">
+                            <img src="images/work-4.jpg" alt="Сайт адвоката с описанием услуг и контактной формой" class="portfolio-img" loading="lazy">
+                            <h2>Сайт адвоката "Адвокатъ"</h2>
+                        </div>
+                        <div class="portfolio-card">
+                            <img src="images/work-5.jpg" alt="Портфолио дизайнера Артема Безрукова с проектами" class="portfolio-img" loading="lazy">
+                            <h2>Портфолио дизайнера</h2>
+                        </div>
+                        <div class="portfolio-card">
+                            <img src="images/work-6.jpg" alt="Лендинг фестиваля Urban Sound с программой и билетами" class="portfolio-img" loading="lazy">
+                            <h2>Фестиваль "Urban Sound"</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- КОНТАКТЫ -->
+        <div id="contacts" class="page">
+            <section>
+                <div class="container">
+                    <h1 class="page-title">Контактная информация</h1>
+                    <div class="contact-card">
+                        <p><strong>ИП Болингер Анна Андреевна</strong></p>
+                        <p>📄 ИНН: 422195761308</p>
+                        <p>📄 ОГРНИП: 326420500029241</p>
+                        <p>📍 Город: Новокузнецк</p>
+                        <p>📧 Email: <a href="mailto:bolinger_a@mail.ru">bolinger_a@mail.ru</a></p>
+                        <p>✈️ Telegram: <a href="https://t.me/Anna_Bolinger">@Anna_Bolinger</a></p>
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <a href="https://t.me/Anna_Bolinger" class="btn" target="_blank">Написать в Telegram</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ВОПРОС-ОТВЕТ -->
+        <div id="faq" class="page">
+            <section>
+                <div class="container">
+                    <h1 class="page-title">Часто задаваемые вопросы</h1>
+                    <div class="faq-item">
+                        <h2>Сколько времени делаете сайт?</h2>
+                        <p>От 1 дня. Всё зависит от сложности. Лендинг могу сделать за сутки.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h2>Нужно ли платить вперед?</h2>
+                        <p>Да, предоплата 30% — это гарантия старта работы.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h2>Что если мне не понравится дизайн?</h2>
+                        <p>Я вношу правки до тех пор, пока вы не скажете "Вау!".</p>
+                    </div>
+                    <div class="faq-item">
+                        <h2>Сайт будет работать на телефоне?</h2>
+                        <p>Обязательно. Все сайты адаптивные — идеально смотрятся на любых устройствах.</p>
+                    </div>
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <p>Остались вопросы? Напишите мне в Telegram!</p>
+                        <a href="https://t.me/Anna_Bolinger" class="btn" target="_blank">@Anna_Bolinger</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>ИП Болингер Анна Андреевна | Новокузнецк | 2026</p>
+            <p>Telegram: <a href="https://t.me/Anna_Bolinger">@Anna_Bolinger</a> | Email: bolinger_a@mail.ru</p>
+        </div>
+    </footer>
+
+    <script>
+        // Конфигурация SEO-тегов для каждой страницы
+        const seoConfig = {
+            home: {
+                title: 'BOLINGER.DIGITAL — создание сайтов под ключ',
+                description: 'Создание современных сайтов с помощью нейросетей. Быстро, стильно, с душой. Сайт под ключ за 24 часа. Индивидуальный дизайн, адаптация под мобильные.'
+            },
+            services: {
+                title: 'Услуги по созданию сайтов | BOLINGER.DIGITAL',
+                description: 'Закажите лендинг от 7900₽, сайт-визитку от 15000₽ или интернет-магазин от 50000₽. Индивидуальный дизайн, адаптация под все устройства, работа с нейросетями.'
+            },
+            portfolio: {
+                title: 'Портфолио веб-студии | BOLINGER.DIGITAL',
+                description: 'Примеры наших работ: лендинги, сайты-визитки, интернет-магазины. Реальные проекты для кофеен, фотографов, адвокатов и фестивалей.'
+            },
+            contacts: {
+                title: 'Контакты веб-студии | BOLINGER.DIGITAL',
+                description: 'Свяжитесь со мной по email bolinger_a@mail.ru или в Telegram @Anna_Bolinger. ИП Болингер Анна Андреевна, Новокузнецк.'
+            },
+            faq: {
+                title: 'Часто задаваемые вопросы | BOLINGER.DIGITAL',
+                description: 'Ответы на популярные вопросы: сроки разработки, предоплата, правки дизайна, адаптивность сайтов. Напишите мне в Telegram для консультации.'
+            }
+        };
+
+        function showPage(pageId) {
+            // Переключение видимости страниц
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            
+            // Обновление SEO-тегов
+            if (seoConfig[pageId]) {
+                document.title = seoConfig[pageId].title;
+                document.querySelector('meta[name="description"]').setAttribute('content', seoConfig[pageId].description);
+                
+                // Обновление Open Graph тегов
+                document.querySelector('meta[property="og:title"]').setAttribute('content', seoConfig[pageId].title);
+                document.querySelector('meta[property="og:description"]').setAttribute('content', seoConfig[pageId].description);
+            }
+            
+            // Обновление URL в адресной строке без перезагрузки
+            history.pushState(null, '', '#' + pageId);
+            
+            // Плавный скролл наверх
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // При загрузке страницы проверяем, есть ли якорь в URL
+        window.addEventListener('load', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash && seoConfig[hash]) {
+                showPage(hash);
+            }
+        });
+    </script>
+</body>
+</html>
